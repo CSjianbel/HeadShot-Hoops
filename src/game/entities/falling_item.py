@@ -12,9 +12,10 @@ class FallingItem(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = [
             random.randint(self.rect.w, self.screen_dim[0] - self.rect.w),
-            self.rect.h // 2
+            # self.rect.h // 2
+            -self.rect.h
         ]
-        self.fall_speed = 0.2
+        self.fall_speed = 3
         # Boolean that represents if item should be caught by basket or not
         self.valid = valid
 
@@ -23,7 +24,7 @@ class FallingItem(pygame.sprite.Sprite):
 
     def fall(self):
         self.rect.y += self.fall_speed
-    
+
     def update(self):
         self.fall()
         if self.rect.y > self.screen_dim[1]:

@@ -11,7 +11,12 @@ class Basket(pygame.sprite.Sprite):
             self.screen_dim[0] // 2,
             self.screen_dim[1] - (self.rect.h // 2),
         ]
+        self.move_speed = 5
 
-    def update(self):
-        pass
+    def move_left(self):
+        self.rect.x += -self.move_speed
+    
+    def move_right(self):
+        self.rect.x += self.move_speed 
+
 
